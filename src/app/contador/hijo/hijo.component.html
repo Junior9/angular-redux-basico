@@ -1,0 +1,22 @@
+<div class="hijo">
+	<div class="row  text-center">
+		<div class="col">
+			<h3>Contador</h3>
+			<h2>{{contador}}</h2>
+		</div>
+	</div>
+	<div class="row text-center">
+		<div class="col">
+			<button (click)="dividir()" class="btn btn-primary">Dividir</button>
+			<button (click)="multiplicar()" class="btn btn-info">Multiplicar</button>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row text-center">
+		<div class="col">
+			<app-neto [contador]="contador" (zero)="reset()"></app-neto>
+		</div>
+	</div>
+</div>
