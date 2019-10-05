@@ -1,4 +1,7 @@
-import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store,Action } from '@ngrx/store';
+import { ZerarAction} from './../contador.actions';
+import { AppState } from './../../app.reducers';
 
 @Component({
   selector: 'app-neto',
@@ -7,16 +10,16 @@ import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 })
 export class NetoComponent implements OnInit {
 
-  constructor() { }
+  contador:number;
 
-  @Input() contador:number;
-  @Output() zero = new EventEmitter<number>();
+  constructor(private store:Store<AppState>) {}
 
   ngOnInit() {
   }
 
   zerar(){
-  	this.zero.emit(0);
+    const action = new ZerarAction();
+  	this.store.dispatch(action);
   }
 
 }
